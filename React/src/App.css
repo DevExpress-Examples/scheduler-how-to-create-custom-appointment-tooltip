@@ -1,0 +1,15 @@
+.container {
+     display: flex;
+}
+
+.tooltip {
+    display: flex;
+    align-items: baseline;
+}
+
+.marker {
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
