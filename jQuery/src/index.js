@@ -4,8 +4,8 @@ $(function () {
         dataSource: [],
         itemTemplate(data) {
             const {text, colorDef, startDate, endDate} = data;
-            const result = $('<div>').css({display: 'flex', alignItems: 'baseline'});
-            const marker = $('<div>').css({width: '10px', height: '10px', marginRight: '10px', borderRadius: '50%'}).appendTo(result);
+            const result = $('<div>').addClass('tooltip');
+            const marker = $('<div>').addClass('marker').appendTo(result);
             const content = $('<div>').appendTo(result)
             colorDef.done(color => marker.css({background: color}));
             $('<p>').text(text).appendTo(content);
