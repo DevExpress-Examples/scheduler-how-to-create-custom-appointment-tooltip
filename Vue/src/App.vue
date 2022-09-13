@@ -53,17 +53,15 @@ export default {
     appointmentTooltipShowingHandler: function (e) {
       e.cancel = true;
       const {appointments} = e;
-      const colors = {};
       const res = appointments.map((item, index) => {
-        item.color.done((color) => colors[index] = color);
         return {
           id: index,
           text: item.appointmentData.text,
+          colorDef: item.color,
           startDate: Utils.formatDate(item.appointmentData.startDate),
           endDate: Utils.formatDate(item.appointmentData.endDate),
         }
       });
-      res.forEach((item) => item.color = colors[item.id]);
       this.tooltipItems = res;
     },
   }
