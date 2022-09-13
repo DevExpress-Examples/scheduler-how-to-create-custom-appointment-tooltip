@@ -54,16 +54,16 @@ export default {
       e.cancel = true;
       const {appointments} = e;
       const colors = {};
-      const res = appointments.map((it, idx) => {
-        it.color.done((color) => colors[idx] = color);
+      const res = appointments.map((item, index) => {
+        item.color.done((color) => colors[index] = color);
         return {
-          id: idx,
-          text: it.appointmentData.text,
-          startDate: Utils.formatDate(it.appointmentData.startDate),
-          endDate: Utils.formatDate(it.appointmentData.endDate),
+          id: index,
+          text: item.appointmentData.text,
+          startDate: Utils.formatDate(item.appointmentData.startDate),
+          endDate: Utils.formatDate(item.appointmentData.endDate),
         }
       });
-      res.forEach((it) => it.color = colors[it.id]);
+      res.forEach((item) => item.color = colors[item.id]);
       this.tooltipItems = res;
     },
   }

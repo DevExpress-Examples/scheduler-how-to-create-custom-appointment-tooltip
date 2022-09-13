@@ -18,16 +18,16 @@ const App = () => {
         e.cancel = true;
         const {appointments} = e;
         const colors = {};
-        const res = appointments.map((it, idx) => {
-            it.color.done((color) => colors[idx] = color);
+        const res = appointments.map((item, index) => {
+            item.color.done((color) => colors[index] = color);
             return {
-                id: idx,
-                text: it.appointmentData.text,
-                startDate: formatDate(it.appointmentData.startDate),
-                endDate: formatDate(it.appointmentData.endDate),
+                id: index,
+                text: item.appointmentData.text,
+                startDate: formatDate(item.appointmentData.startDate),
+                endDate: formatDate(item.appointmentData.endDate),
             }
         });
-        res.forEach((it) => it.color = colors[it.id]);
+        res.forEach((item) => item.color = colors[item.id]);
         setTooltipItems(res);
     }
 
