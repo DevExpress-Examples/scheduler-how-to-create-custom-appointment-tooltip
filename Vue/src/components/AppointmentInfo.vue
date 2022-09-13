@@ -1,6 +1,6 @@
 <template #AppointmentInfo="{ data }">
   <div class='tooltip'>
-    <div class='marker' :style="getMarkerStyle(data.color)"/>
+    <div class='marker' :style="getMarkerStyle(color)"/>
     <div>
       <p>{{ data.text }}</p>
       <p>{{ `${data.startDate} - ${data.endDate}` }}</p>
@@ -10,10 +10,18 @@
 
 <script>
 export default {
+  created() {
+    this.data.colorDef.done((color) => this.color = color);
+  },
   props: {
     data: {
       type: Object,
       default: () => {},
+    }
+  },
+  data() {
+    return {
+      color: '',
     }
   },
   methods: {

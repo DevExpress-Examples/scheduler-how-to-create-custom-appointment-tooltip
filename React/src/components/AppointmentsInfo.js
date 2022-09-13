@@ -1,7 +1,13 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
-const AppointmentsInfo = (props) => {
-    const {text, color, startDate, endDate} = props;
+const AppointmentsInfo = ({data}) => {
+    const {text, colorDef, startDate, endDate} = data;
+    const [color, setColor] = useState();
+
+    useEffect(() => {
+        colorDef.done((color) => setColor(color));
+    }, [colorDef]);
+
     return (
         <div className='tooltip'>
             <div className='marker' style={{background: color}}/>

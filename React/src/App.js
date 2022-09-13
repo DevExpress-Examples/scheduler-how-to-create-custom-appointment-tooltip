@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import 'devextreme/dist/css/dx.common.css';
 import 'devextreme/dist/css/dx.light.css';
 import './App.css';
@@ -6,7 +6,7 @@ import './App.css';
 import Scheduler from 'devextreme-react/scheduler';
 import List from 'devextreme-react/list';
 
-import AppointmentsInfo from './AppointmentsInfo';
+import AppointmentsInfo from './components/AppointmentsInfo';
 import {data, resources} from './data';
 import {formatDate} from './utils';
 
@@ -14,29 +14,27 @@ const App = () => {
     const [tooltipItems, setTooltipItems] = useState([])
     const currentDate = new Date(2021, 5, 2);
 
-    const appointmentTooltipShowingHandler = (e) => {
+    const onAppointmentTooltipShowing = useCallback((e) => {
         e.cancel = true;
         const {appointments} = e;
-        const colors = {};
-        const res = appointments.map((it, idx) => {
-            it.color.done((color) => colors[idx] = color);
+        const res = appointments.map((item, index) => {
             return {
-                id: idx,
-                text: it.appointmentData.text,
-                startDate: formatDate(it.appointmentData.startDate),
-                endDate: formatDate(it.appointmentData.endDate),
+                id: index,
+                text: item.appointmentData.text,
+                colorDef: item.color,
+                startDate: formatDate(item.appointmentData.startDate),
+                endDate: formatDate(item.appointmentData.endDate),
             }
         });
-        res.forEach((it) => it.color = colors[it.id]);
         setTooltipItems(res);
-    }
+    }, []);
 
     return (
         <div className='container'>
             <List
                 width='33%'
                 dataSource={tooltipItems}
-                itemRender={AppointmentsInfo}
+                itemComponent={AppointmentsInfo}
             />
             <Scheduler
                 dataSource={data}
@@ -49,7 +47,7 @@ const App = () => {
                 height={600}
                 width='66%'
                 resources={resources}
-                onAppointmentTooltipShowing={appointmentTooltipShowingHandler}
+                onAppointmentTooltipShowing={onAppointmentTooltipShowing}
             >
             </Scheduler>
         </div>

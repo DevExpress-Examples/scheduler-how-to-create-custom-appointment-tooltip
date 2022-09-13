@@ -35,11 +35,11 @@ $(function () {
         onAppointmentTooltipShowing(e) {
             e.cancel = true;
             const {appointments} = e;
-            list.option('dataSource', appointments.map((it) => ({
-                text: it.appointmentData.text,
-                colorDef: it.color,
-                startDate: formatDate(it.appointmentData.startDate),
-                endDate: formatDate(it.appointmentData.endDate),
+            list.option('dataSource', appointments.map((item) => ({
+                text: item.appointmentData.text,
+                colorDef: item.color,
+                startDate: formatDate(item.appointmentData.startDate),
+                endDate: formatDate(item.appointmentData.endDate),
             })))
 
         },

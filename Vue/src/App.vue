@@ -18,7 +18,7 @@
         :height="600"
         :start-day-hour="15"
         :end-day-hour="20"
-        :on-appointment-tooltip-showing="appointmentTooltipShowingHandler"
+        :on-appointment-tooltip-showing="onAppointmentTooltipShowing"
     >
     </DxScheduler>
   </div>
@@ -50,20 +50,18 @@ export default {
     };
   },
   methods: {
-    appointmentTooltipShowingHandler: function (e) {
+    onAppointmentTooltipShowing: function (e) {
       e.cancel = true;
       const {appointments} = e;
-      const colors = {};
-      const res = appointments.map((it, idx) => {
-        it.color.done((color) => colors[idx] = color);
+      const res = appointments.map((item, index) => {
         return {
-          id: idx,
-          text: it.appointmentData.text,
-          startDate: Utils.formatDate(it.appointmentData.startDate),
-          endDate: Utils.formatDate(it.appointmentData.endDate),
+          id: index,
+          text: item.appointmentData.text,
+          colorDef: item.color,
+          startDate: Utils.formatDate(item.appointmentData.startDate),
+          endDate: Utils.formatDate(item.appointmentData.endDate),
         }
       });
-      res.forEach((it) => it.color = colors[it.id]);
       this.tooltipItems = res;
     },
   }
