@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import 'devextreme/dist/css/dx.common.css';
 import 'devextreme/dist/css/dx.light.css';
 import './App.css';
@@ -14,7 +14,7 @@ const App = () => {
     const [tooltipItems, setTooltipItems] = useState([])
     const currentDate = new Date(2021, 5, 2);
 
-    const appointmentTooltipShowingHandler = (e) => {
+    const onAppointmentTooltipShowing = useCallback((e) => {
         e.cancel = true;
         const {appointments} = e;
         const colors = {};
@@ -29,7 +29,7 @@ const App = () => {
         });
         res.forEach((item) => item.color = colors[item.id]);
         setTooltipItems(res);
-    }
+    }, []);
 
     return (
         <div className='container'>
@@ -49,7 +49,7 @@ const App = () => {
                 height={600}
                 width='66%'
                 resources={resources}
-                onAppointmentTooltipShowing={appointmentTooltipShowingHandler}
+                onAppointmentTooltipShowing={onAppointmentTooltipShowing}
             >
             </Scheduler>
         </div>
