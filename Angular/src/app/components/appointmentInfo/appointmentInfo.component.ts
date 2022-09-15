@@ -1,5 +1,5 @@
-import {Component, Input} from "@angular/core";
-import {Appointment} from "devextreme/ui/scheduler";
+import {Component, Input} from '@angular/core';
+import {Appointment} from 'devextreme/ui/scheduler';
 
 @Component({
   selector: 'appointment-info',

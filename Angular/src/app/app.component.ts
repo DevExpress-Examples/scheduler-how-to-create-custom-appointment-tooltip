@@ -3,8 +3,8 @@ import {BrowserModule} from '@angular/platform-browser';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {DxListModule, DxSchedulerModule, DxTemplateModule} from 'devextreme-angular';
 import {Appointment, AppointmentTooltipShowingAppointmentInfo, AppointmentTooltipShowingEvent } from 'devextreme/ui/scheduler';
-import {Service, IEmployee, Data, employees, data} from './data';
-import {AppointmentInfo} from "./components/appointmentInfo/appointmentInfo.component";
+import {Service, employees, data} from './data';
+import {AppointmentInfo} from './components/appointmentInfo/appointmentInfo.component';
 
 if (!/localhost/.test(document.location.host)) {
   enableProdMode();

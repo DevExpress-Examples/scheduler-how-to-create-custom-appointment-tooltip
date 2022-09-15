@@ -1,6 +1,6 @@
 <template #AppointmentInfo="{ data }">
-  <div class='tooltip'>
-    <div class='marker' :style="`background: ${color}`"/>
+  <div class="tooltip">
+    <div class="marker" :style="`background: ${color}`"/>
     <div>
       <p>{{ data.text }}</p>
       <p>{{ `${data.startDate} - ${data.endDate}` }}</p>
