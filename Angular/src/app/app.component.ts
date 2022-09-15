@@ -7,7 +7,7 @@ import {
   AppointmentTooltipShowingAppointmentInfo,
   AppointmentTooltipShowingEvent
 } from 'devextreme/ui/scheduler';
-import { Service, employees, data } from './data';
+import { employees, data } from './data';
 import { AppointmentInfo } from './components/appointmentInfo/appointmentInfo.component';
 
 if (!/localhost/.test(document.location.host)) {
@@ -18,7 +18,6 @@ if (!/localhost/.test(document.location.host)) {
   selector: 'demo-app',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
-  providers: [Service],
 })
 export class AppComponent {
   dataSource = data;

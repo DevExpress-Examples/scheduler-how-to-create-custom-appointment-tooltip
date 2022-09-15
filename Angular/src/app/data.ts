@@ -61,14 +61,3 @@ export const data: Data[] = [
     endDate: new Date('2021-06-01T18:30:00.000'),
   },
 ];
-
-@Injectable()
-export class Service {
-  getEmployees() {
-    return employees;
-  }
-
-  getData(): Data[] {
-    return data;
-  }
-}
