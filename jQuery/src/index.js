@@ -1,5 +1,5 @@
 $(function () {
-    const list = $("#list").dxList({
+    const list = $('#list').dxList({
         width: '33%',
         dataSource: [],
         itemTemplate(data) {

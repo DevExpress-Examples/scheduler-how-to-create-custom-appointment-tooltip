@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 
 const AppointmentsInfo = ({data}) => {
     const {text, colorDef, startDate, endDate} = data;

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <DxList
-        width='33%'
+        width="33%"
         :data-source="tooltipItems"
         item-template="AppointmentInfo"
     >
@@ -11,7 +11,7 @@
     </DxList>
     <DxScheduler
         current-view="week"
-        width='66%'
+        width="66%"
         :data-source="dataSource"
         :current-date="currentDate"
         :resources="resources"
@@ -25,17 +25,17 @@
 </template>
 
 <script>
-import "devextreme/dist/css/dx.common.css";
-import "devextreme/dist/css/dx.material.blue.light.compact.css";
-import {DxScheduler} from "devextreme-vue/scheduler";
-import {DxList} from 'devextreme-vue/list';
-import {data, resources} from "./data.js";
-import Utils from "./utils.js";
+import 'devextreme/dist/css/dx.common.css';
+import 'devextreme/dist/css/dx.material.blue.light.compact.css';
+import { DxScheduler } from 'devextreme-vue/scheduler';
+import { DxList } from 'devextreme-vue/list';
+import { data, resources } from './data.js';
+import Utils from './utils.js';
 import './style.css';
 import AppointmentInfo from '@/components/AppointmentInfo';
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     AppointmentInfo,
     DxScheduler,

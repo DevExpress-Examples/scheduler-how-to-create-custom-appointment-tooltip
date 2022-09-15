@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-export class Employee {
+export interface IEmployee {
   text: string;
 
   id: number;
@@ -8,7 +8,7 @@ export class Employee {
   color: string;
 }
 
-export class Data {
+export interface Data {
   text: string;
 
   employeeID: number;
@@ -18,17 +18,7 @@ export class Data {
   endDate: Date;
 }
 
-export class TooltipItem {
-  text: string;
-
-  colorDef: any;
-
-  startDate: string;
-
-  endDate: string;
-}
-
-const employees: Employee[] = [{
+export const employees: IEmployee[] = [{
   text: 'John Heart',
   id: 1,
   color: '#56ca85',
@@ -38,7 +28,7 @@ const employees: Employee[] = [{
   color: '#ff9747',
 }];
 
-const data: Data[] = [
+export const data: Data[] = [
   {
     text: 'Prepare 2021 Financial',
     employeeID: 2,
@@ -71,20 +61,3 @@ const data: Data[] = [
     endDate: new Date('2021-06-01T18:30:00.000'),
   },
 ];
-
-const tooltipItems: TooltipItem[] = [];
-
-@Injectable()
-export class Service {
-  getEmployees() {
-    return employees;
-  }
-
-  getData() {
-    return data;
-  }
-
-  getTooltipItems() {
-    return tooltipItems;
-  }
-}

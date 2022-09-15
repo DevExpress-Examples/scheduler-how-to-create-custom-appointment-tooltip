@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, { useCallback, useState } from 'react';
 import 'devextreme/dist/css/dx.common.css';
 import 'devextreme/dist/css/dx.light.css';
 import './App.css';
@@ -7,8 +7,8 @@ import Scheduler from 'devextreme-react/scheduler';
 import List from 'devextreme-react/list';
 
 import AppointmentsInfo from './components/AppointmentsInfo';
-import {data, resources} from './data';
-import {formatDate} from './utils';
+import { data, resources } from './data';
+import { formatDate } from './utils';
 
 const App = () => {
     const [tooltipItems, setTooltipItems] = useState([])

@@ -1,9 +1,14 @@
-import {NgModule, Component, enableProdMode} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
-import {DxListModule, DxSchedulerModule, DxTemplateModule} from 'devextreme-angular';
-import {Service, Employee, TooltipItem} from './app.service';
-import {AppointmentInfo} from "./components/appointmentInfo/appointmentInfo.component";
+import { NgModule, Component, enableProdMode } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { DxListModule, DxSchedulerModule, DxTemplateModule } from 'devextreme-angular';
+import {
+  Appointment,
+  AppointmentTooltipShowingAppointmentInfo,
+  AppointmentTooltipShowingEvent
+} from 'devextreme/ui/scheduler';
+import { employees, data } from './data';
+import { AppointmentInfo } from './components/appointmentInfo/appointmentInfo.component';
 
 if (!/localhost/.test(document.location.host)) {
   enableProdMode();
@@ -13,35 +18,23 @@ if (!/localhost/.test(document.location.host)) {
   selector: 'demo-app',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
-  providers: [Service],
 })
 export class AppComponent {
-  dataSource: any;
-
+  dataSource = data;
   currentDate: Date = new Date(2021, 5, 2);
+  resourcesDataSource = employees;
+  tooltipItems: Appointment[] = [];
 
-  resourcesDataSource: Employee[];
-
-  tooltipItems: TooltipItem[];
-
-  constructor(service: Service) {
-    this.dataSource = service.getData();
-
-    this.resourcesDataSource = service.getEmployees();
-
-    this.tooltipItems = service.getTooltipItems();
-  }
-
-  onAppointmentTooltipShowing(e: any) {
+  onAppointmentTooltipShowing(e: AppointmentTooltipShowingEvent) {
     e.cancel = true;
     const {appointments} = e;
-    const res = appointments.map((item: any) => {
+    const res = appointments.map((item: AppointmentTooltipShowingAppointmentInfo) => {
 
       return {
         text: item.appointmentData.text,
         colorDef: item.color,
-        startDate: this.formatDate(item.appointmentData.startDate),
-        endDate: this.formatDate(item.appointmentData.endDate),
+        startDate: this.formatDate(item.appointmentData.startDate as Date),
+        endDate: this.formatDate(item.appointmentData.endDate as Date),
       }
     });
 
@@ -65,7 +58,6 @@ export class AppComponent {
     DxListModule,
   ],
   bootstrap: [AppComponent],
-  providers: [TooltipItem],
 })
 export class AppModule {
 }
