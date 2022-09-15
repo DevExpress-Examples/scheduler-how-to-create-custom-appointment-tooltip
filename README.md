@@ -3,5 +3,6 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 
-# Scheduler - How to customize appointment tooltip
-This example demonstrates how to customize appointment tooltip throw side component.
+# Scheduler - How to create own appointment tooltip
+This example demonstrates how to create own appointment tooltip throw side component.
+![demo](https://user-images.githubusercontent.com/54763823/190431173-77cdb221-6c89-4f06-ae42-437581926178.gif)
