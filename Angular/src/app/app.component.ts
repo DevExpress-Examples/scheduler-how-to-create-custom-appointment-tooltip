@@ -3,7 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {DxListModule, DxSchedulerModule, DxTemplateModule} from 'devextreme-angular';
 import {Appointment, AppointmentTooltipShowingAppointmentInfo, AppointmentTooltipShowingEvent } from 'devextreme/ui/scheduler';
-import {Service, Employee, Data} from './app.service';
+import {Service, IEmployee, Data, employees, data} from './data';
 import {AppointmentInfo} from "./components/appointmentInfo/appointmentInfo.component";
 
 if (!/localhost/.test(document.location.host)) {
@@ -17,21 +17,10 @@ if (!/localhost/.test(document.location.host)) {
   providers: [Service],
 })
 export class AppComponent {
-  dataSource: Data[];
-
+  dataSource = data;
   currentDate: Date = new Date(2021, 5, 2);
-
-  resourcesDataSource: Employee[];
-
-  tooltipItems: Appointment[];
-
-  constructor(service: Service) {
-    this.dataSource = service.getData();
-
-    this.resourcesDataSource = service.getEmployees();
-
-    this.tooltipItems = [];
-  }
+  resourcesDataSource = employees;
+  tooltipItems: Appointment[] = [];
 
   onAppointmentTooltipShowing(e: AppointmentTooltipShowingEvent) {
     e.cancel = true;
