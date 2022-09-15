@@ -1,0 +1,35 @@
+<div id="container" class="container">
+  <dx-list
+    width="33%"
+    [dataSource]="tooltipItems"
+    itemTemplate="AppointmentInfo"
+  >
+    <div *dxTemplate="let item of 'AppointmentInfo'">
+      <appointment-info
+        [data]="item"
+      >
+      </appointment-info>
+    </div>
+  </dx-list>
+  <dx-scheduler
+    width="66%"
+    currentView="week"
+    [dataSource]="dataSource"
+    [views]="['week']"
+    [currentDate]="currentDate"
+    [firstDayOfWeek]="1"
+    [startDayHour]="15"
+    [endDayHour]="50"
+    [showAllDayPanel]="false"
+    [height]="600"
+    (onAppointmentTooltipShowing)="onAppointmentTooltipShowing($event)"
+  >
+    <dxi-resource
+      fieldExpr="employeeID"
+      [allowMultiple]="false"
+      [dataSource]="resourcesDataSource"
+      label="Employee"
+    >
+    </dxi-resource>
+  </dx-scheduler>
+</div>
