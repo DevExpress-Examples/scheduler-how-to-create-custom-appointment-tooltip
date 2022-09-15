@@ -27,9 +27,9 @@
 <script>
 import 'devextreme/dist/css/dx.common.css';
 import 'devextreme/dist/css/dx.material.blue.light.compact.css';
-import {DxScheduler} from 'devextreme-vue/scheduler';
-import {DxList} from 'devextreme-vue/list';
-import {data, resources} from './data.js';
+import { DxScheduler } from 'devextreme-vue/scheduler';
+import { DxList } from 'devextreme-vue/list';
+import { data, resources } from './data.js';
 import Utils from './utils.js';
 import './style.css';
 import AppointmentInfo from '@/components/AppointmentInfo';
