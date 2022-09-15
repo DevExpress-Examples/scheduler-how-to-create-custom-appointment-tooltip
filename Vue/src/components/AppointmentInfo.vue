@@ -1,6 +1,6 @@
 <template #AppointmentInfo="{ data }">
   <div class='tooltip'>
-    <div class='marker' :style="getMarkerStyle(color)"/>
+    <div class='marker' :style="`background: ${color}`"/>
     <div>
       <p>{{ data.text }}</p>
       <p>{{ `${data.startDate} - ${data.endDate}` }}</p>
@@ -24,11 +24,6 @@ export default {
       color: '',
     }
   },
-  methods: {
-    getMarkerStyle(color) {
-      return `background: ${color}`;
-    }
-  }
 }
 </script>
 
