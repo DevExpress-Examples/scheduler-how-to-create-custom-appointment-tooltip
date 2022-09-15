@@ -53,9 +53,8 @@ export default {
     onAppointmentTooltipShowing: function (e) {
       e.cancel = true;
       const {appointments} = e;
-      const res = appointments.map((item, index) => {
+      const res = appointments.map((item) => {
         return {
-          id: index,
           text: item.appointmentData.text,
           colorDef: item.color,
           startDate: Utils.formatDate(item.appointmentData.startDate),
