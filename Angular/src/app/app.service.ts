@@ -18,16 +18,6 @@ export class Data {
   endDate: Date;
 }
 
-export class TooltipItem {
-  text: string;
-
-  colorDef: any;
-
-  startDate: string;
-
-  endDate: string;
-}
-
 const employees: Employee[] = [{
   text: 'John Heart',
   id: 1,
@@ -72,19 +62,13 @@ const data: Data[] = [
   },
 ];
 
-const tooltipItems: TooltipItem[] = [];
-
 @Injectable()
 export class Service {
   getEmployees() {
     return employees;
   }
 
-  getData() {
+  getData(): Data[] {
     return data;
-  }
-
-  getTooltipItems() {
-    return tooltipItems;
   }
 }

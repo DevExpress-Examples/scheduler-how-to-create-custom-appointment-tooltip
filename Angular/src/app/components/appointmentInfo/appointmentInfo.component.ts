@@ -1,5 +1,5 @@
 import {Component, Input} from "@angular/core";
-import {TooltipItem} from "../../app.service";
+import {Appointment} from "devextreme/ui/scheduler";
 
 @Component({
   selector: 'appointment-info',
@@ -8,11 +8,11 @@ import {TooltipItem} from "../../app.service";
 })
 
 export class AppointmentInfo {
-  @Input() data: TooltipItem;
+  @Input() data: Appointment;
 
   color: string;
 
   ngOnInit() {
-    this.data.colorDef.done((color: string) => this.color = color);
+    this.data['colorDef'].done((color: string) => this.color = color);
   }
 }
