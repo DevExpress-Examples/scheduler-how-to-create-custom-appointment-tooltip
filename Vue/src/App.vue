@@ -26,7 +26,7 @@
 
 <script>
 import 'devextreme/dist/css/dx.common.css';
-import 'devextreme/dist/css/dx.material.blue.light.compact.css';
+import 'devextreme/dist/css/dx.light.css';
 import { DxScheduler } from 'devextreme-vue/scheduler';
 import { DxList } from 'devextreme-vue/list';
 import { data, resources } from './data.js';
