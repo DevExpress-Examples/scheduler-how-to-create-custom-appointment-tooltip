@@ -1,14 +1,10 @@
-import { NgModule, Component, enableProdMode } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { DxListModule, DxSchedulerModule, DxTemplateModule } from 'devextreme-angular';
+import { Component, enableProdMode } from '@angular/core';
 import {
   Appointment,
   AppointmentTooltipShowingAppointmentInfo,
   AppointmentTooltipShowingEvent
 } from 'devextreme/ui/scheduler';
 import { employees, data } from './data';
-import { AppointmentInfo } from './components/appointmentInfo/appointmentInfo.component';
 
 if (!/localhost/.test(document.location.host)) {
   enableProdMode();
@@ -45,21 +41,3 @@ export class AppComponent {
     return `${date.getHours()}:${date.getMinutes()}`
   }
 }
-
-@NgModule({
-  declarations: [
-    AppComponent,
-    AppointmentInfo
-  ],
-  imports: [
-    BrowserModule,
-    DxSchedulerModule,
-    DxTemplateModule,
-    DxListModule,
-  ],
-  bootstrap: [AppComponent],
-})
-export class AppModule {
-}
-
-platformBrowserDynamic().bootstrapModule(AppModule);
